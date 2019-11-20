@@ -7,9 +7,17 @@ import SearchComponent from './SearchComponent';
 import Books from '../data/fantasy.json';
 
 class MainComponent extends React.Component {
+    search = (e) => {
+        console.log(e.target.value)
+        this.setState ({searchKeyword: e.target.value})
+    }
+    state = {
+        searchKeyword: ""
+    }
 
 
     render() {
+        
         // var singleBook = {
         //     "asin": "0316438960",
         //     "title": "The Last Wish: Introducing the Witcher",
@@ -21,9 +29,9 @@ class MainComponent extends React.Component {
             <div>
                 <WarningComponent message="This is a Danger Message!"></WarningComponent>
                 <MyBadge message="Warning: I'm a badge!" color="danger" />
-                <SearchComponent />
+                <SearchComponent searchFunc={this.search}/>
                 {/* <SingleBookComponent book={singleBook}/> */}
-                <BookList Books={Books}/>
+                <BookList Books={Books.filter(Book => Book.title.includes(this.state.searchKeyword))} />
             </div>
         );
     }
