@@ -6,13 +6,14 @@ class SingleBookComponent extends Component {
         // console.log (this.props.book.img)
         return (
             
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={this.props.book.img} />
-                <Card.Body>
-                    <Card.Title>{this.props.book.title}</Card.Title>
-                   
-                </Card.Body>
-            </Card>
+            <div className="p-2">
+                <Card style={{ width: '10rem'}}>
+                    <Card.Img variant="top" src={this.props.book.img} />
+                    <Card.Body>
+                        <Card.Title>{this.props.book.title.substring(0,25)}...</Card.Title>                       
+                    </Card.Body>
+                </Card>
+            </div>
 
         );
     }
