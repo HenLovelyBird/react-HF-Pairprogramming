@@ -3,6 +3,8 @@ import WarningComponent from './WarningComponent';
 import MyBadge from "./MyBadge";
 // import SingleBookComponent from "./SingleBookComponent";
 import BookList from './BookList';
+import SearchComponent from './SearchComponent';
+import Books from '../data/fantasy.json';
 
 class MainComponent extends React.Component {
 
@@ -19,8 +21,9 @@ class MainComponent extends React.Component {
             <div>
                 <WarningComponent message="This is a Danger Message!"></WarningComponent>
                 <MyBadge message="Warning: I'm a badge!" color="danger" />
+                <SearchComponent />
                 {/* <SingleBookComponent book={singleBook}/> */}
-                <BookList />
+                <BookList Books={Books}/>
             </div>
         );
     }
