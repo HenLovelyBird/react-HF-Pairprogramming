@@ -31,7 +31,7 @@ class MainComponent extends React.Component {
                 <MyBadge message="Warning: I'm a badge!" color="danger" />
                 <SearchComponent searchFunc={this.search}/>
                 {/* <SingleBookComponent book={singleBook}/> */}
-                <BookList Books={Books.filter(Book => Book.title.includes(this.state.searchKeyword))} />
+                <BookList Books={Books.filter(Book => Book.title.toLowerCase().includes(this.state.searchKeyword.toLowerCase()))} />
             </div>
         );
     }
